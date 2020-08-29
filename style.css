@@ -1,0 +1,215 @@
+body{
+  padding: 0%;
+  margin: 0px;
+}
+
+html, body{
+  height: 100%;
+  background: black;
+  color: white;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Sits on top */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background-color: black;
+    border: 5px solid rgb(255, 47, 47);
+    border-radius: 16px;
+    padding: 56px 56px 56px 0px;
+}
+
+/*  The Close Button */
+.close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  color: #aaaaaa;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+input[type=text]{
+  width: 500px;
+  height: 28px;
+  background-color: #181818;
+  border: solid rgb(255, 47, 47);
+  border-radius: 8px;
+  font: 28px "monsterFriend";
+  color: white;
+  padding: 10px;
+  outline: none;
+}
+
+.label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+  color: white;
+  font-family: "monsterFriend";
+  font-size: 25px;
+  padding-right: 30px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  padding-bottom: 40px;
+}
+
+#btnDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 50%;
+  padding: 8px;
+}
+
+.inputGameBtn {
+  height: 70px;
+  border: none;
+  background: #03a9f4;
+  font-size: 25px;
+  transition: letter-spacing 1s;
+}
+
+.inputGameBtn:hover,
+.inputGameBtn:focus,
+.inputGameBtn:active:focus {
+  background: #e91e63;
+  cursor: pointer;
+  outline: none;
+  letter-spacing: 10px;
+}
+
+#header {
+  text-align: center;
+  padding: 15px;
+}
+
+#AddGameBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px 10px 20px;
+  background: red;
+  transition: background 0.5s;
+  font-size: 50px;
+}
+
+#AddGameBtn:hover {
+  background: white;
+}
+
+.GameDataContainerStyle {
+  display: block;
+  float: left;
+  border: 2px solid red;
+  width: 300px;
+  text-align: center;
+  margin-left: 15px;
+  border-radius: 15px;
+}
+
+.OptionsPanel {
+  display: flex;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  margin-right: 190px;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.deleteButton {
+  color: red;
+  font-size: 25px;
+  padding-right: 10px;
+  padding-top: 5px;
+}

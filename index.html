@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Backlog</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c9b0dc4f49.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <h1>Game Backlog List</h1>
+    <button id="AddGameBtn">+</button>
+  </div>
+  
+  <!--Modal box-->
+  <div id="myModal" class="modal">
+    <!--Modal Content-->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+        <!--Form Prompts-->
+        <div class="form">
+          <label for="gameTitle" class="label">Title</label>
+          <input type="text" id="gameTitle" name="gameTitle" placeholder="type your video game title">
+        </div>
+        <div class="form">
+          <label for="gameGenre" class="label">Genre</label>
+          <input type="text" id="gameGenre" name="gameGenre" placeholder="type your video game genre">
+        </div>
+        <div class="form">
+          <label for="gameScore" class="label">Score</label>
+          <input type="text" id="gameScore" name="gameScore" placeholder="type your video game rating score">
+        </div>
+          <div class="form">
+            <label for="gamePlayed" class="label">Game Played?</label>
+            <input type="checkbox" id="gamePlayed" name="gamePlayed">
+          </div>
+          <div id="btnDiv">
+            <button class="inputGameBtn" >Add Game</button>
+          </div>  
+    </div>
+  </div>
+
+  <div id="LibraryGrid"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
