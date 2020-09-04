@@ -1,25 +1,28 @@
 //Create video game object
-function Game(title, genre, score, played) {
+function Game(title, console, genre, score, completed) {
   this.title = title;
+  this.console = console;
   this.genre = genre;
   this.score = score;
-  this.played = played;
+  this.completed = completed;
 }
 
 let myLibrary = [
   {
     title: "Ghost of Tsushima",
+    console: "Playstation 4",
     genre: "Action Adventure",
     rating: "M",
     score: "9.5/10",
-    played: true,
+    completed: true,
   },
   {
     title: "Last of Us 2",
+    console: "Playstation 4",
     genre: "Action Adventure",
     rating: "M",
     score: "9.5/10",
-    played: true,
+    completed: false,
   },
 ];
 
@@ -45,29 +48,28 @@ window.onclick = (event) => {
   }
 };
 
-//add game to array
-function addGame() {
-   
-}
 
 //Render objects / elements to website
 function render(arr) {
-  arr.forEach(element => {
+  while(libraryGrid.hasChildNodes()) {
+    libraryGrid.removeChild(libraryGrid.firstChild);
+  }
+  arr.forEach((element, index) => {
     const gameTitle = document.createElement("p");
+    const gameConsole = document.createElement("p");
     const gameGenre = document.createElement("p");
     const gameScore = document.createElement("p");
-    const gamePlayed = document.createElement("p");
+    const gameCompleted = document.createElement("p");
     const container = document.createElement("div");
     const optionsPanel = document.createElement("div");
 
     const deleteButton = document.createElement("span");
 
-    const playedToggle = document.createElement("input");
-    const playedToggleLabel = document.createElement("label");
-    const slider = document.createElement("span");
-
     gameTitle.className = "GameTitleStyle";
     gameTitle.textContent = element.title;
+
+    gameConsole.className = "GameConsoleStyle";
+    gameConsole.textContent = element.console;
 
     gameGenre.className = "GameGenreStyle";
     gameGenre.textContent = "Genre: " + element.genre;
@@ -75,32 +77,24 @@ function render(arr) {
     gameScore.className = "GameScoreStyle";
     gameScore.textContent = "Review Score: " + element.score;
 
-    gamePlayed.className = "GamePlayedStyle";
-    gamePlayed.textContent = element.played ? "Played." : "Not Played.";
+    gameCompleted.className = "GameCompletedStyle";
+    gameCompleted.id = "gameCompleted";
+    gameCompleted.textContent = element.played ? "Completed." : "Not Completed.";
 
     optionsPanel.className = "OptionsPanel";
 
-    playedToggleLabel.className = "switch";
-
-    playedToggle.className = "";
-    playedToggle.setAttribute("type", "checkbox");
-
-    slider.setAttribute("class", "slider round");
-
     container.className = "GameDataContainerStyle";
+    container.id = "container-" + index;
 
     deleteButton.className = "deleteButton";
     deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
 
-    playedToggleLabel.appendChild(playedToggle);
-    playedToggleLabel.appendChild(slider);
-
     container.appendChild(gameTitle);
+    container.appendChild(gameConsole);
     container.appendChild(gameGenre);
     container.appendChild(gameScore);
-    container.appendChild(gamePlayed);
 
-    optionsPanel.appendChild(playedToggleLabel);
+    optionsPanel.appendChild(gameCompleted);
     optionsPanel.appendChild(deleteButton);
 
     container.appendChild(optionsPanel);
@@ -109,4 +103,44 @@ function render(arr) {
   });
 }
 
+function loadListeners() {
+ document.querySelectorAll(".GameDataContainerStyle").forEach(container => {
+   console.log(container);
+  const gameCompletedText = container.querySelector("#gameCompleted");
+  const containerId = container.getAttribute('id').slice(10);
+  const deleteBtn = container.querySelector(".deleteButton");
+
+  gameCompletedText.addEventListener("click", element => toggleGameCompletion(element, containerId));
+  deleteBtn.addEventListener("click", element => deleteGame(containerId));
+ });
+  
+}
+
+//add game to array
+function addGame() {
+   
+}
+
+//Delete from array
+function deleteGame(containerId) {
+  alert("Game Deleted!");
+  delete myLibrary[containerId];
+  render(myLibrary);
+  loadListeners();
+}
+
+function toggleGameCompletion(element, containerId) {
+  //alert("Button Pressed" + containerId);
+  if(myLibrary[containerId].completed) {
+    myLibrary[containerId].completed = false;
+    element.target.textContent = "Not Completed";
+    element.target.style.color = "white";
+  } else {
+    myLibrary[containerId].completed = true;
+    element.target.textContent = "Completed";
+    element.target.style.color = "#25FC0D";
+  }
+}
+
 render(myLibrary);
+loadListeners();
