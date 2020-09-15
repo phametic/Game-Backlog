@@ -24,19 +24,27 @@
           <input type="text" id="gameTitle" name="gameTitle" placeholder="type your video game title">
         </div>
         <div class="form">
+          <label for="gameConsole" class="label">Console</label>
+          <input type="text" id="gameConsole" name="gameConsole" placeholder="type the video game's console platform">
+        </div>
+        <div class="form">
           <label for="gameGenre" class="label">Genre</label>
-          <input type="text" id="gameGenre" name="gameGenre" placeholder="type your video game genre">
+          <input type="text" id="gameGenre" name="gameGenre" placeholder="type the video game genre">
+        </div>
+        <div class="form">
+          <label for="gameRating" class="label">ESRB Rating</label>
+          <input type="text" id="gameRating" name="gameRating" placeholder="type the ESRB Rating">
         </div>
         <div class="form">
           <label for="gameScore" class="label">Score</label>
           <input type="text" id="gameScore" name="gameScore" placeholder="type your video game rating score">
         </div>
-          <div class="form">
-            <label for="gamePlayed" class="label">Game Played?</label>
-            <input type="checkbox" id="gamePlayed" name="gamePlayed">
+          <div class="form gameCompletedDiv">
+            <label for="gameCompleted" class="label gameCompletedLabel">Game Completed?</label>
+            <input type="checkbox" id="gameCompleted" name="gameCompleted">
           </div>
           <div id="btnDiv">
-            <button class="inputGameBtn" >Add Game</button>
+            <button class="inputGameBtn" id="inputGameBtn" >Add Game</button>
           </div>  
     </div>
   </div>

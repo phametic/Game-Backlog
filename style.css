@@ -75,6 +75,16 @@ input[type=text]{
   padding-right: 30px;
 }
 
+.gameCompletedLabel {
+  text-align: left;
+  white-space: nowrap;
+  padding-right: 50px;
+}
+
+.gameCompletedDiv {
+  float: left;
+}
+
 .form {
   display: flex;
   align-items: center;
